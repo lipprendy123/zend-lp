@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Zhendy Kusuma Lab Center - Professional Electric Guitar Course
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- di <head> HTML -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      integrity="sha512-..."
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#1a1a1a',
+              secondary: '#2d2d2d',
+              accent: '#ff6b35',
+              'accent-red': '#e63946',
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.6s ease-out',
+              'slide-up': 'slideUp 0.8s ease-out',
+              'slide-in-left': 'slideInLeft 0.8s ease-out',
+              'slide-in-right': 'slideInRight 0.8s ease-out',
+              'bounce-gentle': 'bounceGentle 2s infinite',
+              float: 'float 3s ease-in-out infinite',
+              'pulse-slow': 'pulse 3s infinite',
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes bounceGentle {
+        0%,
+        20%,
+        50%,
+        80%,
+        100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-10px);
+        }
+        60% {
+          transform: translateY(-5px);
+        }
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .bg-gradient-dark {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+      }
+
+      /* Simplified and fixed hero background */
+      .bg-hero {
+        background: linear-gradient(
+            135deg,
+            rgba(26, 26, 26, 0.95) 0%,
+            rgba(45, 45, 45, 0.9) 100%
+          ),
+          radial-gradient(
+            circle at 20% 50%,
+            rgba(255, 107, 53, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 107, 53, 0.05) 0%,
+            transparent 50%
+          ),
+          #1a1a1a;
+      }
+
+      .hover-scale {
+        transition: transform 0.3s ease;
+      }
+      .hover-scale:hover {
+        transform: scale(1.05);
+      }
+
+      .glass-effect {
+        backdrop-filter: blur(10px);
+        background: rgba(26, 26, 26, 0.9);
+      }
+
+      .program-card {
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .program-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 107, 53, 0.1),
+          transparent
+        );
+        transition: left 0.5s;
+      }
+
+      .program-card:hover::before {
+        left: 100%;
+      }
+
+      .scroll-indicator {
+        animation: bounceGentle 2s infinite;
+      }
+
+      .testimonial-card {
+        transition: all 0.5s ease;
+      }
+
+      .testimonial-card.fade-out {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+
+      .testimonial-card.fade-in {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      /* Added proper delay classes for animations */
+      .delay-100 {
+        animation-delay: 0.1s;
+      }
+      .delay-200 {
+        animation-delay: 0.2s;
+      }
+      .delay-300 {
+        animation-delay: 0.3s;
+      }
+      .delay-400 {
+        animation-delay: 0.4s;
+      }
+      .delay-500 {
+        animation-delay: 0.5s;
+      }
+
+      /* Smooth scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Loading animation */
+      .loading {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        border-top-color: #fff;
+        animation: spin 1s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* Added responsive improvements */
+      @media (max-width: 768px) {
+        .text-6xl {
+          font-size: 3rem;
+        }
+        .text-4xl {
+          font-size: 2rem;
+        }
+        .text-3xl {
+          font-size: 1.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-primary text-white font-sans">
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 w-full z-50 glass-effect border-b border-gray-800">
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex justify-between items-center">
+          <div class="text-2xl font-bold text-accent animate-fade-in">
+            <div class="text-lg">🎵 Yayasan Bina Harmoni Jiwa</div>
+            <div class="text-sm text-gray-300 font-normal">
+              Zhendy Kusuma Lab Center
+            </div>
+          </div>
+
+          <!-- Desktop Menu -->
+          <ul class="hidden lg:flex space-x-8 animate-slide-in-right">
+            <li>
+              <a
+                href="#home"
+                class="hover:text-accent transition-colors duration-300 relative group"
+              >
+                Home
+                <span
+                  class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full"
+                ></span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#program"
+                class="hover:text-accent transition-colors duration-300 relative group"
+              >
+                Program
+                <span
+                  class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full"
+                ></span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#gallery"
+                class="hover:text-accent transition-colors duration-300 relative group"
+              >
+                Gallery
+                <span
+                  class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full"
+                ></span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#testimoni"
+                class="hover:text-accent transition-colors duration-300 relative group"
+              >
+                Testimoni
+                <span
+                  class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full"
+                ></span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#jadwal"
+                class="hover:text-accent transition-colors duration-300 relative group"
+              >
+                Jadwal
+                <span
+                  class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full"
+                ></span>
+              </a>
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="hover:text-accent transition-colors duration-300 relative group"
+              >
+                Contact
+                <span
+                  class="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full"
+                ></span>
+              </a>
+            </li>
+          </ul>
+
+          <!-- Mobile Menu Button -->
+          <button
+            class="lg:hidden text-white hover:text-accent"
+            id="mobile-menu-btn"
+          >
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="lg:hidden hidden mt-4 pb-4" id="mobile-menu">
+          <ul class="space-y-3">
+            <li>
+              <a href="#home" class="block hover:text-accent transition-colors"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                href="#program"
+                class="block hover:text-accent transition-colors"
+                >Program</a
+              >
+            </li>
+            <li>
+              <a
+                href="#gallery"
+                class="block hover:text-accent transition-colors"
+                >Gallery</a
+              >
+            </li>
+            <li>
+              <a
+                href="#testimoni"
+                class="block hover:text-accent transition-colors"
+                >Testimoni</a
+              >
+            </li>
+            <li>
+              <a
+                href="#jadwal"
+                class="block hover:text-accent transition-colors"
+                >Jadwal</a
+              >
+            </li>
+            <li>
+              <a
+                href="#contact"
+                class="block hover:text-accent transition-colors"
+                >Contact</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section
+      class="min-h-screen bg-hero flex items-center justify-center pt-20"
+      id="home"
+    >
+      <div class="container mx-auto px-6 text-center animate-fade-in">
+        <div class="animate-float mb-8">
+          <div class="text-6xl mb-6">🎸</div>
+        </div>
+        <!-- Fixed responsive text sizing and removed problematic inline animation delays -->
+        <h1
+          class="text-4xl md:text-5xl lg:text-7xl font-bold mb-6 animate-slide-up"
+        >
+          MASTER ELECTRIC GUITAR
+          <span class="text-accent block mt-2">WITH PROFESSIONALS</span>
+        </h1>
+        <p
+          class="text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 animate-slide-up delay-200"
+        >
+          Belajar gitar elektrik bersama Zhendy Kusuma & Tim Pengajar ZKGS
+        </p>
+        <div
+          class="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up delay-400"
+        >
+          <a
+            href="#contact"
+            class="bg-accent hover:bg-accent-red text-white px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover-scale"
+          >
+            Daftar Sekarang
+          </a>
+          <a
+            href="#program"
+            class="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 rounded-lg font-bold text-lg transition-all duration-300 hover-scale"
+          >
+            Lihat Program
+          </a>
+        </div>
+
+        <div class="scroll-indicator mt-16">
+          <a href="#about" class="text-accent">
+            <svg
+              class="w-8 h-8 mx-auto"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="py-20 bg-secondary" id="about">
+      <div class="container mx-auto px-6">
+        <h2
+          class="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-16 text-accent animate-slide-up"
+        >
+          Tentang Zhendy Kusuma Lab Center
+        </h2>
+
+        <div class="grid lg:grid-cols-3 gap-8 mb-16">
+          <!-- Fixed animation classes and removed problematic inline delays -->
+          <div
+            class="text-center p-8 bg-primary rounded-lg hover-scale animate-slide-up delay-100"
+          >
+            <div class="text-6xl text-accent mb-6">👨‍🏫</div>
+            <h3 class="text-2xl font-bold mb-4">Pengajar Profesional</h3>
+            <p class="text-gray-300">
+              Belajar langsung dengan Zhendy Kusuma dan tim pengajar ZKGS yang
+              berpengalaman puluhan tahun
+            </p>
+          </div>
+
+          <div
+            class="text-center p-8 bg-primary rounded-lg hover-scale animate-slide-up delay-200"
+          >
+            <div class="text-6xl text-accent mb-6">⚡</div>
+            <h3 class="text-2xl font-bold mb-4">Fokus Electric Guitar</h3>
+            <p class="text-gray-300">
+              Spesialisasi khusus gitar elektrik dengan teknik dan teori musik
+              modern yang terstruktur
+            </p>
+          </div>
+
+          <div
+            class="text-center p-8 bg-primary rounded-lg hover-scale animate-slide-up delay-300"
+          >
+            <div class="text-6xl text-accent mb-6">🎯</div>
+            <h3 class="text-2xl font-bold mb-4">Metode Fleksibel</h3>
+            <p class="text-gray-300">
+              Program private hingga kolektif, online maupun onsite sesuai
+              kebutuhan dan preferensi Anda
+            </p>
+          </div>
+        </div>
+
+        <div class="bg-gradient-dark p-8 rounded-lg animate-fade-in delay-500">
+          <p class="text-lg text-center text-gray-300 leading-relaxed">
+            Zhendy Kusuma Lab Center adalah pusat pembelajaran gitar elektrik
+            profesional yang didukung oleh Yayasan Bina Harmoni Jiwa. Dengan
+            fokus pada pengembangan skill gitar elektrik, kami menyediakan
+            berbagai program mulai dari private lesson hingga collective class
+            dengan materi yang terstruktur dan disesuaikan dengan level
+            kemampuan setiap siswa.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAM SECTION -->
+    <section class="py-20 bg-primary" id="program">
+      <div class="container mx-auto px-6">
+        <h2
+          class="text-4xl lg:text-5xl font-bold text-center mb-16 text-accent animate-slide-up"
+        >
+          Program Kursus Kami
+        </h2>
+
+        <div class="grid lg:grid-cols-2 gap-8 mb-12">
+          <!-- Private Regular -->
+          <div
+            class="program-card bg-secondary p-8 rounded-lg hover-scale animate-slide-in-left"
+          >
+            <div class="flex items-center mb-6">
+              <div class="text-4xl mr-4">🎸</div>
+              <div>
+                <h3 class="text-2xl font-bold text-accent">Private Reguler</h3>
+                <p class="text-gray-400">Les Private 1-on-1</p>
+              </div>
+            </div>
+            <ul class="space-y-3 mb-6 text-gray-300">
+              <li>• Onsite atau Online</li>
+              <li>• 4x pertemuan per bulan</li>
+              <li>• Sesi 30 atau 60 menit</li>
+              <li>• Dengan Zhendy Kusuma atau Tim ZKGS</li>
+              <li>• Jadwal tetap sesuai kesepakatan</li>
+            </ul>
+            <button
+              class="w-full bg-accent hover:bg-accent-red text-white py-3 rounded-lg font-bold transition-colors duration-300"
+              onclick="scrollToContact()"
+            >
+              Daftar Sekarang
+            </button>
+          </div>
+
+          <!-- Private Online with Zhendy -->
+          <div
+            class="program-card bg-secondary p-8 rounded-lg hover-scale animate-slide-in-right"
+          >
+            <div class="flex items-center mb-6">
+              <div class="text-4xl mr-4">💻</div>
+              <div>
+                <h3 class="text-2xl font-bold text-accent">
+                  Private Online Zhendy
+                </h3>
+                <p class="text-gray-400">Eksklusif dengan Zhendy Kusuma</p>
+              </div>
+            </div>
+            <ul class="space-y-3 mb-6 text-gray-300">
+              <li>• Langsung dengan Zhendy Kusuma</li>
+              <li>• 4x pertemuan per bulan</li>
+              <li>• Jadwal fleksibel (kesepakatan)</li>
+              <li>• Online via video call</li>
+              <li>• Program khusus individual</li>
+            </ul>
+            <button
+              class="w-full bg-accent hover:bg-accent-red text-white py-3 rounded-lg font-bold transition-colors duration-300"
+              onclick="scrollToContact()"
+            >
+              Daftar Sekarang
+            </button>
+          </div>
+
+          <!-- Private Visit Client -->
+          <div
+            class="program-card bg-secondary p-8 rounded-lg hover-scale animate-slide-in-left"
+            style="animation-delay: 0.2s"
+          >
+            <div class="flex items-center mb-6">
+              <div class="text-4xl mr-4">🏠</div>
+              <div>
+                <h3 class="text-2xl font-bold text-accent">
+                  Private Visit Client
+                </h3>
+                <p class="text-gray-400">Guru datang ke tempat Anda</p>
+              </div>
+            </div>
+            <ul class="space-y-3 mb-6 text-gray-300">
+              <li>• Zhendy Kusuma datang ke lokasi</li>
+              <li>• 4x pertemuan per bulan</li>
+              <li>• Sesi 1 jam per pertemuan</li>
+              <li>• Jadwal fleksibel (kesepakatan)</li>
+              <li>• Pembelajaran di lingkungan familiar</li>
+            </ul>
+            <button
+              class="w-full bg-accent hover:bg-accent-red text-white py-3 rounded-lg font-bold transition-colors duration-300"
+              onclick="scrollToContact()"
+            >
+              Daftar Sekarang
+            </button>
+          </div>
+
+          <!-- Collective Class -->
+          <div
+            class="program-card bg-secondary p-8 rounded-lg hover-scale animate-slide-in-right"
+            style="animation-delay: 0.2s"
+          >
+            <div class="flex items-center mb-6">
+              <div class="text-4xl mr-4">👥</div>
+              <div>
+                <h3 class="text-2xl font-bold text-accent">Collective Class</h3>
+                <p class="text-gray-400">Kelas Kelompok 4-8 orang</p>
+              </div>
+            </div>
+            <ul class="space-y-2 mb-4 text-gray-300">
+              <li>• Onsite atau Online</li>
+              <li>• Quartal Program (4 bulan)</li>
+              <li>• Single Program (1 bulan)</li>
+              <li>• Materi pilihan:</li>
+            </ul>
+            <div
+              class="grid grid-cols-1 text-sm text-gray-400 mb-6 ml-4 space-y-1"
+            >
+              <p>1. Basic Fretboard Knowledge</p>
+              <p>2. Modes & Application 1</p>
+              <p>3. Rhythm Study 1</p>
+              <p>4. Interval Study 1</p>
+              <p>5. Reading 1</p>
+              <p>6. Pentatonic & Application 1</p>
+              <p>7. Chord & Arpeggios (triads)</p>
+            </div>
+            <button
+              class="w-full bg-accent hover:bg-accent-red text-white py-3 rounded-lg font-bold transition-colors duration-300"
+              onclick="scrollToContact()"
+            >
+              Daftar Sekarang
+            </button>
+          </div>
+        </div>
+
+        <!-- Collective Class Pricing -->
+        <div class="bg-gradient-dark p-8 rounded-lg animate-fade-in">
+          <h3 class="text-3xl font-bold text-center text-accent mb-8">
+            Collective Class Pricing
+          </h3>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-primary p-6 rounded-lg">
+              <h4 class="text-xl font-bold text-accent mb-4">
+                Quartal Program (4 Bulan)
+              </h4>
+              <div class="text-2xl font-bold text-white mb-4">
+                Rp 400K
+                <span class="text-sm font-normal text-gray-400">per bulan</span>
+              </div>
+              <ul class="space-y-2 text-gray-300">
+                <li>• 4-8 siswa per kelas</li>
+                <li>• Materi terstruktur 4 bulan</li>
+                <li>• Onsite atau Online</li>
+                <li>• Sertifikat completion</li>
+              </ul>
+            </div>
+            <div class="bg-primary p-6 rounded-lg">
+              <h4 class="text-xl font-bold text-accent mb-4">
+                Single Program (1 Bulan)
+              </h4>
+              <div class="text-2xl font-bold text-white mb-4">
+                Rp 350K
+                <span class="text-sm font-normal text-gray-400">per bulan</span>
+              </div>
+              <ul class="space-y-2 text-gray-300">
+                <li>• 4-8 siswa per kelas</li>
+                <li>• Pilih 1 dari 7 materi</li>
+                <li>• Onsite atau Online</li>
+                <li>• Fokus skill spesifik</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="py-20 bg-secondary" id="gallery">
+      <div class="container mx-auto px-6">
+        <h2
+          class="text-4xl lg:text-5xl font-bold text-center mb-16 text-accent animate-slide-up"
+        >
+          Gallery
+        </h2>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div
+            class="aspect-square bg-primary rounded-lg overflow-hidden hover-scale animate-fade-in cursor-pointer"
+            onclick="openModal('private-class')"
+          >
+            <img
+              src="/assets/Ade.jpeg"
+              alt="Foto Kelas Private"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+
+          <div
+            class="aspect-square bg-primary rounded-lg overflow-hidden hover-scale animate-fade-in cursor-pointer"
+            onclick="openModal('private-class')"
+          >
+            <img
+              src="/assets/Arsha.jpeg"
+              alt="Foto Kelas Private"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+
+          <div
+            class="aspect-square bg-primary rounded-lg overflow-hidden hover-scale animate-fade-in cursor-pointer"
+            onclick="openModal('private-class')"
+          >
+            <img
+              src="/assets/Charis.jpeg"
+              alt="Foto Kelas Private"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+
+          <div
+            class="aspect-square bg-primary rounded-lg overflow-hidden hover-scale animate-fade-in cursor-pointer"
+            onclick="openModal('private-class')"
+          >
+            <img
+              src="/assets/Cutepapa.jpg"
+              alt="Foto Kelas Private"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+
+          <div
+            class="aspect-square bg-primary rounded-lg overflow-hidden hover-scale animate-fade-in cursor-pointer"
+            onclick="openModal('private-class')"
+          >
+            <img
+              src="/assets/Fadhil.jpeg"
+              alt="Foto Kelas Private"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+
+          <div
+            class="aspect-square bg-primary rounded-lg overflow-hidden hover-scale animate-fade-in cursor-pointer"
+            onclick="openModal('private-class')"
+          >
+            <img
+              src="/assets/20241109_173403.jpg"
+              alt="Foto Kelas Private"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+
+          <div
+            class="aspect-square bg-primary rounded-lg overflow-hidden hover-scale animate-fade-in cursor-pointer"
+            onclick="openModal('private-class')"
+          >
+            <img
+              src="/assets/IMG_20241109_144931.jpg"
+              alt="Foto Kelas Private"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+
+          <div
+            class="aspect-square bg-primary rounded-lg overflow-hidden hover-scale animate-fade-in cursor-pointer"
+            onclick="openModal('private-class')"
+          >
+            <img
+              src="/assets/IMG_20241109_150238.jpg"
+              alt="Foto Kelas Private"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+        </div>
+
+        <div class="text-center">
+          <button
+            class="bg-accent hover:bg-accent-red text-white px-8 py-3 rounded-lg font-bold transition-colors duration-300"
+            onclick="showGalleryAlert()"
+          >
+            Lihat Semua Media
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIAL SECTION -->
+    <section class="py-20 bg-primary" id="testimoni">
+      <div class="container mx-auto px-6">
+        <h2
+          class="text-4xl lg:text-5xl font-bold text-center mb-16 text-accent animate-slide-up"
+        >
+          Testimoni Siswa
+        </h2>
+
+        <div class="max-w-4xl mx-auto">
+          <div
+            class="testimonial-card bg-gradient-dark p-8 rounded-lg text-center animate-fade-in"
+          >
+            <div class="text-6xl text-accent mb-6">"</div>
+            <blockquote
+              class="text-xl lg:text-2xl text-gray-300 mb-8 leading-relaxed"
+              id="testimonial-quote"
+            >
+              Belajar dengan Pak Zhendy benar-benar mengubah cara saya bermain
+              gitar elektrik. Metode pengajarannya sangat terstruktur dan mudah
+              dipahami. Dalam 3 bulan sudah bisa main lagu favorit!
+            </blockquote>
+            <div
+              class="flex items-center justify-center space-x-4 testimonial-author"
+            >
+              <div
+                class="w-16 h-16 bg-accent rounded-full flex items-center justify-center text-2xl"
+                id="testimonial-icon"
+              >
+                👨‍🎓
+              </div>
+              <div class="text-left">
+                <div
+                  class="text-accent font-bold text-lg"
+                  id="testimonial-name"
+                >
+                  Rizki Pratama
+                </div>
+                <div class="text-gray-400" id="testimonial-role">
+                  Private Reguler Student
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex justify-center mt-8 space-x-2">
+            <button
+              class="w-3 h-3 bg-accent rounded-full testimonial-dot active"
+              data-index="0"
+            ></button>
+            <button
+              class="w-3 h-3 bg-gray-600 rounded-full hover:bg-accent transition-colors testimonial-dot"
+              data-index="1"
+            ></button>
+            <button
+              class="w-3 h-3 bg-gray-600 rounded-full hover:bg-accent transition-colors testimonial-dot"
+              data-index="2"
+            ></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section class="py-20 bg-secondary" id="jadwal">
+      <div class="container mx-auto px-6">
+        <h2
+          class="text-4xl lg:text-5xl font-bold text-center mb-16 text-accent animate-slide-up"
+        >
+          Investasi Program
+        </h2>
+
+        <div class="grid lg:grid-cols-3 gap-8 mb-16">
+          <div
+            class="bg-primary p-8 rounded-lg hover-scale animate-slide-in-left"
+          >
+            <div class="text-center mb-6">
+              <h3 class="text-2xl font-bold text-accent mb-2">
+                Private Reguler
+              </h3>
+              <div class="text-4xl font-bold mb-4">
+                <span class="text-white">Rp 600K</span>
+                <div class="text-sm text-gray-400 font-normal">per bulan</div>
+              </div>
+            </div>
+            <ul class="space-y-3 mb-8 text-gray-300">
+              <li class="flex items-center">
+                <span class="text-accent mr-2">✓</span> 4x pertemuan/bulan
+              </li>
+              <li class="flex items-center">
+                <span class="text-accent mr-2">✓</span> Onsite atau Online
+              </li>
+              <li class="flex items-center">
+                <span class="text-accent mr-2">✓</span> Sesi 30/60 menit
+              </li>
+              <li class="flex items-center">
+                <span class="text-accent mr-2">✓</span> Tim pengajar ZKGS
+              </li>
+            </ul>
+            <button
+              class="w-full bg-accent hover:bg-accent-red text-white py-3 rounded-lg font-bold transition-colors duration-300"
+              onclick="scrollToContact()"
+            >
+              Daftar Sekarang
+            </button>
+          </div>
+
+          <div
+            class="bg-primary p-8 rounded-lg hover-scale animate-slide-up border-2 border-accent relative"
+            style="animation-delay: 0.1s"
+          >
+            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <span
+                class="bg-accent text-white px-4 py-1 rounded-full text-sm font-bold"
+                >POPULER</span
+              >
+            </div>
+            <div class="text-center mb-6">
+              <h3 class="text-2xl font-bold text-accent mb-2">
+                Private Zhendy
+              </h3>
+              <div class="text-4xl font-bold mb-4">
+                <span class="text-white">Rp 1.2JT</span>
+                <div class="text-sm text-gray-400 font-normal">per bulan</div>
+              </div>
+            </div>
+            <ul class="space-y-3 mb-8 text-gray-300">
+              <li class="flex items-center">
+                <span class="text-accent mr-2">✓</span> 4x pertemuan/bulan
+              </li>
+              <li class="flex items-center">
+                <span class="text-accent mr-2">✓</span> Langsung Zhendy Kusuma
+              </li>
+              <li class="flex items-center">
+                <span class="text-accent mr-2">✓</span> Jadwal fleksibel
+              </li>
+              <li class="flex items-center">
+                <span class="text-accent mr-2">✓</span> Program personal
+              </li>
+            </ul>
+            <button
+              class="w-full bg-accent hover:bg-accent-red text-white py-3 rounded-lg font-bold transition-colors duration-300"
+              onclick="scrollToContact()"
+            >
+              Daftar Sekarang
+            </button>
+          </div>
+
+          <div
+            class="bg-primary p-8 rounded-lg hover-scale animate-slide-in-right"
+            style="animation-delay: 0.2s"
+          >
+            <div class="text-center mb-6">
+              <h3 class="text-2xl font-bold text-accent mb-2">Private Visit</h3>
+              <div class="text-4xl font-bold mb-4">
+                <span class="text-white">Rp 1.5JT</span>
+                <div class="text-sm text-gray-400 font-normal">per bulan</div>
+              </div>
+            </div>
+            <ul class="space-y-3 mb-8 text-gray-300">
+              <li class="flex items-center">
+                <span class="text-accent mr-2">✓</span> 4x pertemuan/bulan
+              </li>
+              <li class="flex items-center">
+                <span class="text-accent mr-2">✓</span> Zhendy datang ke lokasi
+              </li>
+              <li class="flex items-center">
+                <span class="text-accent mr-2">✓</span> Sesi 1 jam
+              </li>
+              <li class="flex items-center">
+                <span class="text-accent mr-2">✓</span> Jadwal fleksibel
+              </li>
+            </ul>
+            <button
+              class="w-full bg-accent hover:bg-accent-red text-white py-3 rounded-lg font-bold transition-colors duration-300"
+              onclick="scrollToContact()"
+            >
+              Daftar Sekarang
+            </button>
+          </div>
+        </div>
+
+        <!-- Schedule Information -->
+        <div class="bg-gradient-dark p-8 rounded-lg animate-fade-in">
+          <h3 class="text-3xl font-bold text-center text-accent mb-8">
+            Jadwal Operasional
+          </h3>
+          <div class="grid md:grid-cols-2 gap-8">
+            <div class="bg-primary p-6 rounded-lg">
+              <h4 class="text-xl font-bold text-accent mb-4">
+                Jam Buka Studio
+              </h4>
+              <ul class="space-y-2 text-gray-300">
+                <li class="flex justify-between">
+                  <span>Senin - Jumat</span><span>09:00 - 21:00</span>
+                </li>
+                <li class="flex justify-between">
+                  <span>Sabtu</span><span>09:00 - 21:00</span>
+                </li>
+                <li class="flex justify-between">
+                  <span>Minggu</span><span>13:00 - 18:00</span>
+                </li>
+              </ul>
+            </div>
+            <div class="bg-primary p-6 rounded-lg">
+              <h4 class="text-xl font-bold text-accent mb-4">
+                Jadwal Fleksibel
+              </h4>
+              <ul class="space-y-2 text-gray-300">
+                <li>• Private lesson dapat dijadwalkan sesuai kesepakatan</li>
+                <li>• Online session tersedia 24/7</li>
+                <li>• Collective class dimulai setiap awal bulan</li>
+                <li>• Konsultasi gratis untuk penentuan jadwal</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="py-20 bg-primary" id="contact">
+      <div class="container mx-auto px-6">
+        <h2
+          class="text-4xl lg:text-5xl font-bold text-center mb-16 text-accent animate-slide-up"
+        >
+          Hubungi Kami
+        </h2>
+
+        <div class="grid lg:grid-cols-2 gap-12">
+          <div class="animate-slide-in-left">
+            <h3 class="text-2xl font-bold text-accent mb-6">
+              Daftar Program Sekarang
+            </h3>
+            <form class="space-y-6" id="contact-form">
+              <div>
+                <input
+                  type="text"
+                  name="nama"
+                  placeholder="Nama Lengkap"
+                  required
+                  class="w-full bg-secondary border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-accent focus:outline-none transition-colors"
+                />
+              </div>
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  required
+                  class="w-full bg-secondary border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-accent focus:outline-none transition-colors"
+                />
+              </div>
+              <div>
+                <input
+                  type="tel"
+                  name="whatsapp"
+                  placeholder="Nomor WhatsApp"
+                  required
+                  class="w-full bg-secondary border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-accent focus:outline-none transition-colors"
+                />
+              </div>
+              <div>
+                <select
+                  name="program"
+                  required
+                  class="w-full bg-secondary border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-accent focus:outline-none transition-colors"
+                >
+                  <option value="">Pilih Program</option>
+                  <option value="private-reguler">Private Reguler</option>
+                  <option value="private-zhendy">Private Online Zhendy</option>
+                  <option value="private-visit">Private Visit Client</option>
+                  <option value="collective-quartal">
+                    Collective Class - Quartal
+                  </option>
+                  <option value="collective-single">
+                    Collective Class - Single
+                  </option>
+                </select>
+              </div>
+              <div>
+                <textarea
+                  rows="4"
+                  name="pesan"
+                  placeholder="Pesan tambahan (level skill, tujuan, dll...)"
+                  class="w-full bg-secondary border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-accent focus:outline-none transition-colors resize-none"
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                class="w-full bg-accent hover:bg-accent-red text-white py-4 rounded-lg font-bold text-lg transition-colors duration-300 flex items-center justify-center"
+              >
+                <span id="submit-text">Kirim Pesan</span>
+                <div id="submit-loading" class="loading hidden ml-2"></div>
+              </button>
+            </form>
+          </div>
+
+          <div class="animate-slide-in-right">
+            <h3 class="text-2xl font-bold text-accent mb-6">
+              Informasi Kontak
+            </h3>
+            <div class="bg-secondary p-6 rounded-lg mb-6">
+              <div class="space-y-4">
+                <div class="flex items-center space-x-3">
+                  <div class="text-2xl">📍</div>
+                  <div>
+                    <div class="font-bold">Alamat Studio</div>
+                    <div class="text-gray-300">
+                      Jl. Harmoni Musik No. 123, Jakarta Selatan
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="text-2xl">📱</div>
+                  <div>
+                    <div class="font-bold">WhatsApp</div>
+                    <div class="text-gray-300">
+                      <a
+                        href="https://wa.me/6281234567890"
+                        class="hover:text-accent transition-colors"
+                        >+62 812-3456-7890</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="text-2xl">✉️</div>
+                  <div>
+                    <div class="font-bold">Email</div>
+                    <div class="text-gray-300">
+                      <a
+                        href="mailto:info@zhendykusuma.com"
+                        class="hover:text-accent transition-colors"
+                        >info@zhendykusuma.com</a
+                      >
+                    </div>
+                  </div>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="text-2xl">🕒</div>
+                  <div>
+                    <div class="font-bold">Jam Operasional</div>
+                    <div class="text-gray-300">
+                      Senin - Sabtu: 09:00 - 21:00
+                    </div>
+                    <div class="text-gray-300">Minggu: 13:00 - 18:00</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Map Placeholder -->
+            <div
+              class="bg-secondary rounded-lg h-64 flex items-center justify-center cursor-pointer hover:bg-gray-700 transition-colors"
+              onclick="openMap()"
+            >
+              <div class="text-center text-gray-200 px-4">
+                <p class="text-lg font-semibold mb-2">
+                  Zhendy Kusuma Lab Center
+                </p>
+                <p class="text-sm leading-relaxed">
+                  No 23 A/B, Jl. Bungur Dalam No.23A/B,<br />
+                  RT.4/RW.5, Bangka, Kec. Mampang Prpt.,<br />
+                  Kota Jakarta Selatan, DKI Jakarta 12730
+                </p>
+                <p class="text-xs text-accent mt-3">Klik untuk membuka peta</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-primary border-t border-gray-800 py-16">
+      <div class="container mx-auto px-6">
+        <div class="grid lg:grid-cols-4 gap-8 mb-8">
+          <div class="lg:col-span-2">
+            <div class="text-2xl font-bold text-accent mb-4">
+              🎵 Yayasan Bina Harmoni Jiwa
+            </div>
+            <div class="text-lg text-gray-300 mb-4">
+              Zhendy Kusuma Lab Center
+            </div>
+            <p class="text-gray-400 mb-6">
+              "Mengembangkan talenta musik melalui pendidikan gitar elektrik
+              yang berkualitas dan profesional."
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="https://www.instagram.com/zendhykusumaguitarschool/"
+                target="_blank"
+                class="bg-secondary hover:bg-accent text-white p-3 rounded-lg transition-colors duration-300"
+                title="Instagram"
+              >
+                <i class="fab fa-instagram text-xl"></i>
+              </a>
+
+              <a
+                href="https://www.youtube.com/@ZendhyKusuma"
+                target="_blank"
+                class="bg-secondary hover:bg-accent text-white p-3 rounded-lg transition-colors duration-300"
+                title="YouTube"
+              >
+                <i class="fab fa-youtube text-xl"></i>
+              </a>
+
+              <a
+                href="https://wa.me/6281313208608"
+                class="bg-secondary hover:bg-accent text-white p-3 rounded-lg transition-colors duration-300"
+                title="WhatsApp"
+              >
+                <i class="fab fa-whatsapp text-xl"></i>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-accent mb-4">Program</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#program" class="hover:text-accent transition-colors"
+                  >Private Reguler</a
+                >
+              </li>
+              <li>
+                <a href="#program" class="hover:text-accent transition-colors"
+                  >Private Online Zhendy</a
+                >
+              </li>
+              <li>
+                <a href="#program" class="hover:text-accent transition-colors"
+                  >Private Visit Client</a
+                >
+              </li>
+              <li>
+                <a href="#program" class="hover:text-accent transition-colors"
+                  >Collective Class</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-xl font-bold text-accent mb-4">Quick Links</h3>
+            <ul class="space-y-2 text-gray-400">
+              <li>
+                <a href="#home" class="hover:text-accent transition-colors"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="#about" class="hover:text-accent transition-colors"
+                  >Tentang Kami</a
+                >
+              </li>
+              <li>
+                <a href="#gallery" class="hover:text-accent transition-colors"
+                  >Gallery</a
+                >
+              </li>
+              <li>
+                <a href="#testimoni" class="hover:text-accent transition-colors"
+                  >Testimoni</a
+                >
+              </li>
+              <li>
+                <a href="#contact" class="hover:text-accent transition-colors"
+                  >Kontak</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
+          <p>
+            &copy; 2025 Yayasan Bina Harmoni Jiwa - Zhendy Kusuma Lab Center.
+            All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      function openMap() {
+        window.open(
+          'https://www.google.com/maps/place/Jl.+Bungur+Dalam+No.23A%2FB,+RT.4%2FRW.5,+Bangka,+Kec.+Mampang+Prpt.,+Kota+Jakarta+Selatan,+DKI+Jakarta+12730',
+          '_blank'
+        );
+      }
+
+      function showGalleryAlert() {
+        Swal.fire({
+          title: 'Gallery Lengkap',
+          text: 'Gallery lengkap akan segera tersedia!',
+          icon: 'info', // info | success | warning | error | question
+          confirmButtonText: 'OK',
+          confirmButtonColor: '#ef4444', // contoh: pakai warna Tailwind accent-red
+        });
+      }
+
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            });
+          }
+          // Close mobile menu if open
+          mobileMenu.classList.add('hidden');
+        });
+      });
+
+      // Add animation on scroll
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px',
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate-fade-in');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all sections
+      document.querySelectorAll('section').forEach((section) => {
+        observer.observe(section);
+      });
+
+      // Form submission
+      document
+        .getElementById('contact-form')
+        .addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          const submitBtn = e.target.querySelector('button[type="submit"]');
+          const submitText = document.getElementById('submit-text');
+          const submitLoading = document.getElementById('submit-loading');
+
+          // Show loading state
+          submitText.textContent = 'Mengirim...';
+          submitLoading.classList.remove('hidden');
+          submitBtn.disabled = true;
+
+          // Simulate form submission
+          setTimeout(() => {
+            alert(
+              'Terima kasih! Pesan Anda telah dikirim. Kami akan menghubungi Anda segera.'
+            );
+
+            // Reset form
+            e.target.reset();
+
+            // Reset button state
+            submitText.textContent = 'Kirim Pesan';
+            submitLoading.classList.add('hidden');
+            submitBtn.disabled = false;
+          }, 2000);
+        });
+
+      // Parallax effect for hero background
+      window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const parallax = document.querySelector('.bg-hero');
+        if (parallax) {
+          const speed = scrolled * 0.5;
+          parallax.style.transform = `translateY(${speed}px)`;
+        }
+      });
+
+      // Dynamic testimonial rotation
+      const testimonials = [
+        {
+          quote:
+            'Belajar dengan Pak Zhendy benar-benar mengubah cara saya bermain gitar elektrik. Metode pengajarannya sangat terstruktur dan mudah dipahami. Dalam 3 bulan sudah bisa main lagu favorit!',
+          name: 'Rizki Pratama',
+          role: 'Private Reguler Student',
+          icon: '👨‍🎓',
+        },
+        {
+          quote:
+            'Collective class sangat membantu saya memahami teori musik dan aplikasinya. Belajar bareng teman-teman jadi lebih seru dan termotivasi!',
+          name: 'Sarah Indira',
+          role: 'Collective Class Student',
+          icon: '👩‍🎓',
+        },
+        {
+          quote:
+            'Program private visit sangat fleksibel untuk jadwal saya yang padat. Pak Zhendy datang langsung ke rumah dan pembelajaran jadi lebih fokus.',
+          name: 'Ahmad Fauzi',
+          role: 'Private Visit Student',
+          icon: '👨‍💼',
+        },
+      ];
+
+      let currentTestimonial = 0;
+      const testimonialQuote = document.getElementById('testimonial-quote');
+      const testimonialName = document.getElementById('testimonial-name');
+      const testimonialRole = document.getElementById('testimonial-role');
+      const testimonialIcon = document.getElementById('testimonial-icon');
+      const testimonialDots = document.querySelectorAll('.testimonial-dot');
+
+      function rotateTestimonial() {
+        const testimonial = testimonials[currentTestimonial];
+
+        // Add fade out effect
+        document.querySelector('.testimonial-card').classList.add('fade-out');
+
+        setTimeout(() => {
+          testimonialQuote.textContent = testimonial.quote;
+          testimonialName.textContent = testimonial.name;
+          testimonialRole.textContent = testimonial.role;
+          testimonialIcon.textContent = testimonial.icon;
+
+          // Update dots
+          testimonialDots.forEach((dot, index) => {
+            if (index === currentTestimonial) {
+              dot.classList.add('bg-accent');
+              dot.classList.remove('bg-gray-600');
+            } else {
+              dot.classList.remove('bg-accent');
+              dot.classList.add('bg-gray-600');
+            }
+          });
+
+          // Remove fade out and add fade in
+          document
+            .querySelector('.testimonial-card')
+            .classList.remove('fade-out');
+          document.querySelector('.testimonial-card').classList.add('fade-in');
+
+          currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+        }, 250);
+      }
+
+      // Add click handlers for testimonial dots
+      testimonialDots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          currentTestimonial = index;
+          rotateTestimonial();
+        });
+      });
+
+      // Rotate testimonial every 6 seconds
+      setInterval(rotateTestimonial, 6000);
+
+      // Utility functions
+      function scrollToContact() {
+        document.getElementById('contact').scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }
+
+      function openModal(type) {
+        alert(
+          `Gallery ${type} akan segera tersedia dengan foto dan video berkualitas tinggi!`
+        );
+      }
+
+      // function openMap() {
+      //     // In a real implementation, this would open Google Maps
+      //     alert('Peta lokasi studio akan segera tersedia. Sementara ini, silakan hubungi kami untuk alamat lengkap.');
+      // }
+
+      // Add smooth scrolling to all internal links
+      document.addEventListener('DOMContentLoaded', function () {
+        // Add active state to navigation
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('nav a[href^="#"]');
+
+        window.addEventListener('scroll', () => {
+          let current = '';
+          sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= sectionTop - 200) {
+              current = section.getAttribute('id');
+            }
+          });
+
+          navLinks.forEach((link) => {
+            link.classList.remove('text-accent');
+            if (link.getAttribute('href') === `#${current}`) {
+              link.classList.add('text-accent');
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
